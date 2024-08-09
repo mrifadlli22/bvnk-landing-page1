@@ -1,0 +1,79 @@
+.header {
+  padding-top: 25px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center; /* Ini memastikan headerContent berada di tengah */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: backdrop-filter 0.3s, background-color 0.3s;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Sebarkan elemen-elemen */
+  max-width: 1280px;
+  width: 100%; /* Membuat headerContent mengambil seluruh lebar header */
+  padding: 0 24px;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+}
+
+.toggleGroup {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.toggleButton {
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  flex: 1;
+  font-size: 15px;
+}
+
+.toggleButton.active {
+  background-color: #0D3450;
+  color: white;
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navigation {
+  margin-right: 16px;
+}
+
+.blurry {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .headerContent {
+    padding: 0 20px;
+  }
+}
