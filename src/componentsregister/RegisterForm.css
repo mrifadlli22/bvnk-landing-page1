@@ -1,236 +1,158 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/39acc383f04ade08aaaefa3f69897d41558cf3e59d7d7a034656db3c1488229c?apiKey=e3ddd6dd58b748b09fc1391939743920&&apiKey=e3ddd6dd58b748b09fc1391939743920');
-    background-size: cover;
-    background-position: center;
-}
-
-/* Menyusun input untuk First Name dan Last Name dalam satu baris */
-.name-inputs {
-    display: flex;
-    gap: 10px; /* Jarak antara input fields */
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  
-  .name-inputs input {
-    flex: 1; /* Agar kedua input memiliki lebar yang sama */
-    padding: 6px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .name-inputs input::placeholder {
-    color: #aaa; /* Warna placeholder */
-  }
-  
-  
-  
-  .login-logo {
-    text-align: center;
-    margin-top: 38px;
-    margin-right: 10px;
-  
-  }
-  
-  .login-logo img {
-    width: 300px;
-  }
-
-  .login-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-  }
-  
-.login-option {
+/* Container untuk register form */
+.register-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 0 10px;
-  padding: 10px 15px;
-  background-color: white;
-  border-radius: 5px;
+  height: 100vh;
+  background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/39acc383f04ade08aaaefa3f69897d41558cf3e59d7d7a034656db3c1488229c?apiKey=e3ddd6dd58b748b09fc1391939743920&&apiKey=e3ddd6dd58b748b09fc1391939743920');
+  background-size: cover; /* Memastikan gambar menutupi seluruh kontainer */
+  background-position: center; /* Memastikan gambar tetap terpusat */
+  background-repeat: no-repeat; /* Mencegah gambar terulang */}
+
+ /* Wrapper untuk register form */
+.register-wrapper {
+  background: rgba(255, 255, 255, 0.534); /* Warna putih dengan transparansi */
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px; /* Perbesar padding untuk register form */
+  max-width: 600px; /* Perbesar lebar maksimum wrapper */
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px); /* Efek blur pada latar belakang */
+}
+
+
+
+/* Logo */
+.logo {
+  display: block;
+  margin: 0 auto 10px auto;
+  max-width: 30%; /* Pastikan logo tidak melebihi lebar wrapper */
+  height: auto; /* Menjaga rasio aspek gambar */
+}
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px; /* Ukuran font subtitle */
+  color: #333;
+  font-weight: bold; /* Membuat subtitle bold */
+}
+
+/* Form field styling */
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: flex;
+  align-items: center; /* Vertikal align checkbox dan label */
+  font-weight: bold;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Flex properties for username fields */
+.form-field-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field-half {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-field-half:last-child {
+  margin-right: 0;
+}
+
+/* Account type styling */
+.account-type {
+  margin-bottom: 15px;
+}
+
+.account-type legend {
+  font-weight: bold;
+}
+
+.account-type label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Checkbox and label styling */
+.form-field input[type="checkbox"] {
+  margin-right: 10px;
+  /* Ukuran default checkbox, jika perlu sesuaikan di sini */
+  width: 16px; /* Ukuran checkbox */
+  height: 16px; /* Ukuran checkbox */
+}
+
+.form-field label {
+  display: flex;
+  align-items: center; /* Menyelaraskan checkbox dan teks secara vertikal */
+}
+
+/* Button styling */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  margin: 10px 0;
+  transition: all 0.3s ease; /* Efek transisi untuk hover */
 }
 
-.login-option:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.btn-personal {
+  background-color: #4285f4;
+  color: white;
 }
-  
-  .login-icon {
-    width: 20px;
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  
-  .login-form input {
-    padding: 0 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s;
-    width: calc(100% - 11px);
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .loginlogooo{  
-    width: 400px;
-    margin-left: 50px;
-  }
-  
-  .loginlogoo{
-    width: 250px;
-    margin-left: 50px;
-  }
-  
-  .forgot-password-link {
-    text-decoration: none;
-    color: #000000; /* Ubah sesuai kebutuhan */
-    text-decoration: none; /* Menghapus garis bawah default */
-    transition: text-decoration 0.3s ease; /* Animasi saat menghover */
-  }
-  
-  .login-logo-title {
-    color: #ffffff;
-    font-size: 2rem;
-    margin-top: 0px;
-    margin-left: 20px;
-    margin-right: 50px;
-  }
-  
-  .login-form {
-    width: 600px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.915);
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    margin-left: 20px;
-   
-  }
 
-  
-  
-  .Wrapper {
-    display: flex;
-    background: linear-gradient(135deg, #0d345069 0%, rgb(255, 255, 255) 100%); /* Gradient dari merah ke putih dengan transparansi */
-    padding: 50px;
-    border-radius: 20px; /* Memberikan sudut melengkung */  
-    border: 2px solid rgba(0, 0, 0, 0.1); /* Memberikan border */
-    box-shadow: 0 4px 8px #0d34506e; /* Memberikan efek bayangan dengan warna merah terang */
+.btn-business {
+  background-color: #000;
+  color: white;
+}
+
+/* Hover effect */
+.btn:hover {
+  transform: scale(1.05); /* Membuat tombol sedikit lebih besar saat dihover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan saat dihover */
+}
+
+/* Link styling */
+.login-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Efek transisi untuk hover */
+}
+
+/* Efek hover untuk link */
+.login-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Media queries untuk responsivitas */
+@media (max-width: 768px) {
+  .register-wrapper {
+    padding: 20px; /* Sesuaikan padding untuk layar kecil */
   }
-  
-  
-  
-  .login-form .form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 16px; /* Ukuran font subtitle untuk layar ekstra kecil */
   }
-  
-  .login-form .checkbox-remember {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .login-form .checkbox-remember input[type="checkbox"] {
-    width: 20px; /* Sesuaikan ukuran checkbox */
-    height: 20px; /* Sesuaikan ukuran checkbox */
-    margin-right: 10px; /* Spasi antara checkbox dan label */
-  }
-  
-  .login-form .checkbox-remember label {
-    cursor: pointer; /* Membuat cursor berubah menjadi pointer ketika di atas label */
-  }
-  
-  .login-form h2{  
-    margin-top: 0px;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  
-  .form-group input:focus {
-    border-color: #ff0000;
-  }
-  
-  .login-form button {
-    width: 96%;
-    background: linear-gradient(to right, #0D3450, #000000);
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 10px;
-  }
-  
-  .login-form button:hover {
-    background: linear-gradient(to right, #0D3450, #000000);
-  }
-  
-  .login-link, .notregister {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-  }
-  
-  .login-link a, .notregister a {
-    color: #0D3450;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .login-link a:hover, .notregister a:hover {
-    color: #0D3450;
-    text-decoration: underline;
-  }
-  
-  .error {
-    color: #ff3860;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  @media (max-width: 600px) {
-    .login-logo, .login-form {
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .login-logo img {
-      width: 250px;
-    }
-    
-    .login-form {
-      width: 90%;
-      padding: 20px;
-    }
-  }
-  
-  .login-option input[type="radio"] {
-    margin-right: 8px; /* Jarak antara radio button dan label */
-    width: auto; /* Menghilangkan lebar default radio button */
-    height: auto; /* Menghilangkan tinggi default radio button */
-     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    /* Tambahkan gaya lain sesuai kebutuhan */
-  }
-  
+}
