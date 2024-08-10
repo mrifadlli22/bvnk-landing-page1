@@ -6,7 +6,7 @@ import styles from "./Logo.module.css";
 
 const Logo = () => {
   return (
-    <div className="logo">
+    <div style={{marginLeft:"0px"}} className="logo">
             <img src="Images/BVNK (1).png" alt="Logo Login" style={{ marginRight:"25px", width: '140px', height: 'auto' }} />
           </div>
   );
