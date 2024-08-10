@@ -1,136 +1,72 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import "./RegisterForm.css";
+import './RegisterForm.css';
 
 const RegisterForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [accountType, setAccountType] = useState('personal');
-  const [ageConfirmed, setAgeConfirmed] = useState(false);
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    // Contoh logika pendaftaran sederhana
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
-    if (!ageConfirmed) {
-      setError('You must confirm you are above 18 years old');
-      return;
-    }
-
-    // Simpan data pendaftaran atau lakukan pendaftaran
-    console.log('Registration successful');
-    navigate('/welcome'); // Ganti dengan rute yang sesuai
+  const handleAccountTypeChange = (event) => {
+    setAccountType(event.target.value);
   };
 
   return (
-    <div className="login-container">
-      <div className="Wrapper">
-        <div style={{ marginTop: "110px" }} className="login-logo">
-          <img style={{ marginTop: "90px" }} src="Images/1Asset 6.png" alt="Logo Register" />
-        </div>
-        <form style={{ textAlign: "center", width: "500px" }} className="login-form" onSubmit={handleRegister}>
-          <img style={{ width: "150px", height: "auto" }} src="Images/BVNK (1).png" alt="Logo Register" />
-          <h3 style={{ marginTop: "5px" }}>Create Your Account</h3>
-          {error && <div className="error">{error}</div>}
-          <div className="form-group">
-            <label style={{ marginLeft: "5px", display: "block", textAlign: "left" }} htmlFor="firstName">Username</label>
-            <div className="name-inputs">
-              <input
-                type="text"
-                id="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-                placeholder="First Name"
-              />
-              <input
-                type="text"
-                id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-                placeholder="Last Name"
-              />
+    <div className="register-container">
+      <div className="register-wrapper">
+        <img src="./Images/BVNK (1).png" alt="Logo" className="logo" />
+        <div className="subtitle">Sign Up</div>
+        <form>
+          <div className="form-field form-field-flex">
+            <div className="form-field-half">
+              <label htmlFor="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name" />
+            </div>
+            <div className="form-field-half">
+              <label htmlFor="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name" />
             </div>
           </div>
-          <div className="form-group">
-            <label style={{ marginLeft: "5px", display: "block", textAlign: "left" }} htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+          <div className="form-field">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="email" />
           </div>
-          <div className="form-group">
-            <label style={{ marginLeft: "5px", display: "block", textAlign: "left" }} htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <div className="form-field">
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" name="password" />
           </div>
-          <div className="form-group">
-            <label style={{ marginLeft: "5px", display: "block", textAlign: "left" }} htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+          <div className="form-field">
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" />
           </div>
-          <div className="login-options">
-            <div className={`login-option ${accountType === 'personal' ? 'selected' : ''}`}>
+          <fieldset className="account-type">
+            <legend>Choose Account Type</legend>
+            <label>
               <input
                 type="radio"
-                id="personal"
-                name="accountType"
                 value="personal"
                 checked={accountType === 'personal'}
-                onChange={() => setAccountType('personal')}
+                onChange={handleAccountTypeChange}
               />
-               <span>Personal Account</span>
-            </div>
-            <div className={`login-option ${accountType === 'business' ? 'selected' : ''}`}>
+              Personal Account
+            </label>
+            <label>
               <input
                 type="radio"
-                id="business"
-                name="accountType"
                 value="business"
                 checked={accountType === 'business'}
-                onChange={() => setAccountType('business')}
+                onChange={handleAccountTypeChange}
               />
-               <span>Business Account</span>
-            </div>
+              Business Account
+            </label>
+          </fieldset>
+          <div className="form-field">
+            <label className="checkbox-container">
+              <input type="checkbox" id="confirm-age" />
+              I confirm that I am 18 years of age or older, and I agree to the General Terms of Use and Privacy Policy
+            </label>
           </div>
-          <div className="form-group checkbox-remember">
-            <input
-              type="checkbox"
-              id="ageConfirmed"
-              checked={ageConfirmed}
-              onChange={(e) => setAgeConfirmed(e.target.checked)}
-            />
-            <label htmlFor="ageConfirmed">I confirm that I am 18 years of age or older, and I agree to
-            the General Terms of Use and Privacy Policy</label>
-          </div>
-          <button type="submit">Open Personal Account</button>
-          <div className="login-link">
-            Already have an account? <a href="/login">Login Here</a>
-          </div>
+          <button type="submit" className={`btn ${accountType === 'personal' ? 'btn-personal' : 'btn-business'}`}>
+            {accountType === 'personal' ? 'Open Personal Account' : 'Open Business Account'}
+          </button>
+          <a href="/login" className="login-link">Already Have An Account? Login Here</a>
         </form>
       </div>
     </div>
