@@ -2,7 +2,7 @@
   padding-top: 25px;
   padding-bottom: 20px;
   display: flex;
-  justify-content: center; /* Ini memastikan headerContent berada di tengah */
+  justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
@@ -17,9 +17,9 @@
 .headerContent {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Sebarkan elemen-elemen */
+  justify-content: space-between;
   max-width: 1280px;
-  width: 100%; /* Membuat headerContent mengambil seluruh lebar header */
+  width: 100%;
   padding: 0 24px;
 }
 
@@ -46,6 +46,8 @@
   transition: background-color 0.3s, color 0.3s;
   flex: 1;
   font-size: 15px;
+  border-radius: 8px;
+
 }
 
 .toggleButton.active {
@@ -59,8 +61,85 @@
   gap: 16px;
 }
 
-.navigation {
-  margin-right: 16px;
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.burgerMenu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.burgerIcon {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.burgerIcon::before,
+.burgerIcon::after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s;
+}
+
+.burgerIcon::before {
+  top: -8px;
+}
+
+.burgerIcon::after {
+  bottom: -8px;
+}
+
+.open .burgerIcon {
+  transform: rotate(45deg);
+}
+
+.open .burgerIcon::before {
+  transform: rotate(90deg) translateX(-8px);
+}
+
+.open .burgerIcon::after {
+  transform: rotate(90deg) translateX(8px);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-20px);
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease;
+}
+
+.dropdownMenu.open {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
 }
 
 .blurry {
@@ -68,12 +147,45 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.menuButtonGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.toggleGroupDesktop {
+  display: flex;
+  border-radius: 8px;
+}
+
+.toggleGroupMobile {
+  display: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 5px;
+}
+
 @media (max-width: 991px) {
-  .header {
-    padding: 0 20px;
+  .buttonGroup {
+    display: none;
   }
 
-  .headerContent {
-    padding: 0 20px;
+  .toggleGroupDesktop {
+    display: none;
+  }
+
+  .toggleGroupMobile {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .burgerMenu {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
   }
 }

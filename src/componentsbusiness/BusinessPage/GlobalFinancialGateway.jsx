@@ -50,7 +50,7 @@ function GlobalFinancialGateway() {
           ))}
           <button className={styles.ctaButton}>Open Account</button>
         </div>
-        <img
+        <img style={{marginTop:"56px"}}
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/cbe169da819092e25b07ac616821bcf5c43aef9e1de712b16498d9ee3bdfedef?placeholderIfAbsent=true&apiKey=e3ddd6dd58b748b09fc1391939743920"
           alt="Global Financial Gateway Illustration"
           className={styles.globalFinancialGatewayImage}
