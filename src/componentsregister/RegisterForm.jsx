@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './RegisterForm.css';
+import useStore from './store'; // Adjust path as necessary
 
 const RegisterForm = () => {
-  const [accountType, setAccountType] = useState('personal');
+  const {
+    firstName, lastName, email, password, confirmPassword, accountType,
+    setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setAccountType
+  } = useStore();
 
-  const handleAccountTypeChange = (event) => {
-    setAccountType(event.target.value);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    switch (name) {
+      case 'first-name':
+        setFirstName(value);
+        break;
+      case 'last-name':
+        setLastName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      case 'confirm-password':
+        setConfirmPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Registering with:", firstName, lastName, email, password, confirmPassword, accountType);
+    // Handle registration logic here
   };
 
   return (
@@ -13,35 +42,31 @@ const RegisterForm = () => {
       <div className="register-wrapper">
         <img src="./Images/BVNK (1).png" alt="Logo" className="logo" />
         <div className="subtitle">Sign Up</div>
-        <form>
-          {/* Form Fields */}
+        <form onSubmit={handleSubmit}>
           <div className="form-field form-field-flex">
             <div className="form-field-half">
               <label htmlFor="first-name">First Name</label>
-              <input type="text" id="first-name" name="first-name" />
+              <input type="text" id="first-name" name="first-name" value={firstName} onChange={handleInputChange} />
             </div>
             <div className="form-field-half">
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last-name" />
+              <input type="text" id="last-name" name="last-name" value={lastName} onChange={handleInputChange} />
             </div>
           </div>
-          {/* Other Fields */}
           <div className="form-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" value={email} onChange={handleInputChange} />
           </div>
           <div className="form-field">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" value={password} onChange={handleInputChange} />
           </div>
           <div className="form-field">
             <label htmlFor="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" />
+            <input type="password" id="confirm-password" name="confirm-password" value={confirmPassword} onChange={handleInputChange} />
           </div>
-          {/* Account Type Options */}
           <div className="account-type">
-          <label style={{fontWeight:"bold"}} htmlFor="confirm-password">Choose Account Type:</label>
-
+            <label style={{fontWeight:"bold"}}>Choose Account Type:</label>
             <div className="account-options">
               {['personal', 'business'].map(type => (
                 <label key={type} className={`account-option ${accountType === type ? 'selected' : ''}`}>
@@ -49,7 +74,7 @@ const RegisterForm = () => {
                     type="radio"
                     value={type}
                     checked={accountType === type}
-                    onChange={handleAccountTypeChange}
+                    onChange={() => setAccountType(type)}
                     className="account-radio"
                   />
                   <div className={`option-icon ${type}-icon`}></div>
@@ -61,18 +86,15 @@ const RegisterForm = () => {
               ))}
             </div>
           </div>
-          {/* Terms and Conditions */}
           <div className="form-field">
-            <label style={{fontWeight:"normal"}} className="checkbox-container">
+            <label className="checkbox-container">
               <input type="checkbox" id="confirm-age" />
               I confirm that I am 18 years of age or older, and I agree to the General Terms of Use and Privacy Policy
             </label>
           </div>
-          {/* Submission Button */}
           <button type="submit" className={`btn ${accountType === 'personal' ? 'btn-personal' : 'btn-business'}`}>
             {accountType === 'personal' ? 'Open Personal Account' : 'Open Business Account'}
           </button>
-          {/* Login Link */}
           <a href="/login" className="login-link">Already Have An Account? Login Here</a>
         </form>
       </div>
