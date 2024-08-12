@@ -16,6 +16,12 @@ const LoginForm = () => {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" />
           </div>
+          <a href="/forgotpassword" className="forgot-password-link">Forgot Password?</a>
+          <button type="submit" className="btn btn-login">Login to Your Account</button>
+
+          {/* Divider "or" */}
+          <div className="divider">OR</div>
+
           <button type="button" className="btn btn-google">
             <i className="fab fa-google"></i> Sign in with Google
           </button>

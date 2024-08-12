@@ -3,6 +3,7 @@ import PersonalPage from './componentspersonal/App/App';
 import LoginForm from './componentslogin/LoginForm';
 import RegisterForm from './componentsregister/RegisterForm';
 import BusinessPage from './componentsbusiness/BusinessPage/BusinessPage';
+import ForgotPassword from './componentslogin/ForgotPassword';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/businesspage" element={<BusinessPage />} /> 
           <Route path="/login" element={<LoginForm />} /> 
           <Route path="/register" element={<RegisterForm />} /> 
+          <Route path="/forgotpassword" element={<ForgotPassword />} /> 
         </Routes>
       </BrowserRouter>
     </div>

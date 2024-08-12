@@ -7,9 +7,10 @@
   background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/39acc383f04ade08aaaefa3f69897d41558cf3e59d7d7a034656db3c1488229c?apiKey=e3ddd6dd58b748b09fc1391939743920&&apiKey=e3ddd6dd58b748b09fc1391939743920');
   background-size: cover; /* Memastikan gambar menutupi seluruh kontainer */
   background-position: center; /* Memastikan gambar tetap terpusat */
-  background-repeat: no-repeat; /* Mencegah gambar terulang */}
+  background-repeat: no-repeat; /* Mencegah gambar terulang */
+}
 
- /* Wrapper untuk register form */
+/* Wrapper untuk register form */
 .register-wrapper {
   background: rgba(255, 255, 255, 0.534); /* Warna putih dengan transparansi */
   border-radius: 8px;
@@ -20,8 +21,6 @@
   box-sizing: border-box;
   backdrop-filter: blur(5px); /* Efek blur pada latar belakang */
 }
-
-
 
 /* Logo */
 .logo {
@@ -73,17 +72,91 @@
   margin-right: 0;
 }
 
-/* Account type styling */
+/* Remove the border from the account type section */
 .account-type {
   margin-bottom: 15px;
 }
 
+/* Account options styling */
+.account-options {
+  display: flex;
+  justify-content: space-between;
+  border: none; /* Remove the border/fieldset */
+}
+
 .account-type legend {
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.account-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 48%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  background-color: white;
+}
+
+.account-option.selected {
+  border-color: #4285f4;
+  background-color: #f1f5ff; /* Light blue background for selected option */
+}
+
+.option-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* Ubah dari right ke left untuk menempatkan ikon di sebelah kiri */
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.personal-icon {
+  background: url('https://cdn.builder.io/api/v1/image/assets/TEMP/acc638716512ac16665fffedc2b58fdbf99dd82c0fe5ff8cc20fc1ba918db551?placeholderIfAbsent=true&apiKey=e3ddd6dd58b748b09fc1391939743920') no-repeat center center;
+  background-size: contain;
+}
+
+.business-icon {
+  background: url('https://cdn.builder.io/api/v1/image/assets/TEMP/ad48bc1d4bc19c0db368902eaf7f372b8ddd2afc0725f4893e7dc35a94aef7a8?placeholderIfAbsent=true&apiKey=e3ddd6dd58b748b09fc1391939743920') no-repeat center center;
+  background-size: contain;
+}
+
+.option-info {
+  flex-grow: 1;
+  margin-left: 40px; /* Beri jarak antara ikon dan teks */
+}
+
+.option-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 16px; /* Ukuran font default */
+}
+
+.option-description {
+  color: #555;
+  font-size: 14px; /* Ukuran font default untuk deskripsi */
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+  position: absolute; /* Letakkan radio button di posisi yang diinginkan */
+  top: 10px; /* Jarak dari atas */
+  right: 10px; /* Jarak dari kanan */
+  cursor: pointer;
+  opacity: 1; /* Sembunyikan radio button jika ingin menggunakan label sebagai kontrol */
 }
 
 .account-type label {
-  display: block;
+  display: flex;
+  align-items: center;
+  position: relative; /* Membuat label sebagai kontainer relatif untuk radio button */
   margin-bottom: 5px;
 }
 
@@ -149,10 +222,26 @@
   .register-wrapper {
     padding: 20px; /* Sesuaikan padding untuk layar kecil */
   }
+  
+  .option-title {
+    font-size: 14px; /* Ukuran font lebih kecil untuk judul pada layar kecil */
+  }
+  
+  .option-description {
+    font-size: 12px; /* Ukuran font lebih kecil untuk deskripsi pada layar kecil */
+  }
 }
 
 @media (max-width: 480px) {
   .subtitle {
     font-size: 16px; /* Ukuran font subtitle untuk layar ekstra kecil */
+  }
+  
+  .option-title {
+    font-size: 12px; /* Ukuran font lebih kecil untuk judul pada layar ekstra kecil */
+  }
+  
+  .option-description {
+    font-size: 10px; /* Ukuran font lebih kecil untuk deskripsi pada layar ekstra kecil */
   }
 }

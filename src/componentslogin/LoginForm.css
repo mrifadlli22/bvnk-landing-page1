@@ -11,6 +11,20 @@
   background-repeat: no-repeat; /* Mencegah gambar terulang */
 }
 
+/* Forgot Password link styling */
+.forgot-password-link {
+  display: block;
+  text-align: right;
+  margin-bottom: 10px;
+  color: #007bff; /* Blue color for visibility and consistency with theme */
+  text-decoration: none; /* No underline to keep it clean */
+  transition: color 0.3s ease; /* Smooth color transition for hover */
+}
+
+.forgot-password-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline; /* Underline on hover for better visibility */
+}
 
 /* Wrapper untuk login form */
 .login-wrapper {
@@ -113,11 +127,55 @@
   text-decoration: underline; /* Menambahkan garis bawah saat hover */
 }
 
+.btn-login {
+  background-color: #28a745; /* Warna hijau untuk tombol login */
+  color: white;
+  margin-top: 15px; /* Jarak antara tombol ini dengan elemen di atasnya */
+}
+
+.btn-login:hover {
+  background-color: #218838; /* Warna hijau lebih gelap saat dihover */
+}
+
+/* Divider "or" styling */
+.divider {
+  text-align: center;
+  margin: 20px 0; /* Spasi di sekitar divider */
+  font-weight: bold;
+  color: #888; /* Warna teks divider */
+  font-size: 14px; /* Ukuran font divider */
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  display: block;
+  width: 40%; /* Lebar garis kiri dan kanan */
+  height: 1px;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+
 
 /* Media queries untuk responsivitas */
 @media (max-width: 768px) {
   .login-wrapper {
     padding: 20px; /* Sesuaikan padding untuk layar kecil */
+  }
+  .forgot-password-link {
+    text-align: center; /* Center align on smaller screens for better aesthetics */
   }
 }
 
