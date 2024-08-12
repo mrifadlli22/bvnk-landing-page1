@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './RegisterForm.css';
+import useStore from './store'; // Adjust path as necessary
 
 const RegisterForm = () => {
-  const [accountType, setAccountType] = useState('personal');
+  const {
+    firstName, lastName, email, password, confirmPassword, accountType,
+    setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setAccountType
+  } = useStore();
 
-  const handleAccountTypeChange = (event) => {
-    setAccountType(event.target.value);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    switch (name) {
+      case 'first-name':
+        setFirstName(value);
+        break;
+      case 'last-name':
+        setLastName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      case 'confirm-password':
+        setConfirmPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Registering with:", firstName, lastName, email, password, confirmPassword, accountType);
+    // Handle registration logic here
   };
 
   return (
@@ -13,50 +42,50 @@ const RegisterForm = () => {
       <div className="register-wrapper">
         <img src="./Images/BVNK (1).png" alt="Logo" className="logo" />
         <div className="subtitle">Sign Up</div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-field form-field-flex">
             <div className="form-field-half">
               <label htmlFor="first-name">First Name</label>
-              <input type="text" id="first-name" name="first-name" />
+              <input type="text" id="first-name" name="first-name" value={firstName} onChange={handleInputChange} />
             </div>
             <div className="form-field-half">
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last-name" />
+              <input type="text" id="last-name" name="last-name" value={lastName} onChange={handleInputChange} />
             </div>
           </div>
           <div className="form-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" value={email} onChange={handleInputChange} />
           </div>
           <div className="form-field">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" value={password} onChange={handleInputChange} />
           </div>
           <div className="form-field">
             <label htmlFor="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" />
+            <input type="password" id="confirm-password" name="confirm-password" value={confirmPassword} onChange={handleInputChange} />
           </div>
-          <fieldset className="account-type">
-            <legend>Choose Account Type</legend>
-            <label>
-              <input
-                type="radio"
-                value="personal"
-                checked={accountType === 'personal'}
-                onChange={handleAccountTypeChange}
-              />
-              Personal Account
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="business"
-                checked={accountType === 'business'}
-                onChange={handleAccountTypeChange}
-              />
-              Business Account
-            </label>
-          </fieldset>
+          <div className="account-type">
+            <label style={{fontWeight:"bold"}}>Choose Account Type:</label>
+            <div className="account-options">
+              {['personal', 'business'].map(type => (
+                <label key={type} className={`account-option ${accountType === type ? 'selected' : ''}`}>
+                  <input
+                    type="radio"
+                    value={type}
+                    checked={accountType === type}
+                    onChange={() => setAccountType(type)}
+                    className="account-radio"
+                  />
+                  <div className={`option-icon ${type}-icon`}></div>
+                  <div className="option-info">
+                    <div className="option-title">{type === 'personal' ? 'Personal Account' : 'Business Account'}</div>
+                    <div className="option-description">{type === 'personal' ? 'All your personal finances in one place.' : 'Adaptable to your company\'s needs.'}</div>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </div>
           <div className="form-field">
             <label className="checkbox-container">
               <input type="checkbox" id="confirm-age" />
