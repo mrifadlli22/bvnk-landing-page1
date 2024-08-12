@@ -40,7 +40,7 @@ const RegisterForm = () => {
   return (
     <div className="register-container">
       <div className="register-wrapper">
-        <img src="./Images/BVNK (1).png" alt="Logo" className="logo" />
+        <img style={{maxWidth:"35%"}} src="./Images/BVNK (1).png" alt="Logo" className="logo" />
         <div className="subtitle">Sign Up</div>
         <form onSubmit={handleSubmit}>
           <div className="form-field form-field-flex">
@@ -67,24 +67,25 @@ const RegisterForm = () => {
           </div>
           <div className="account-type">
             <label style={{fontWeight:"bold"}}>Choose Account Type:</label>
-            <div className="account-options">
-              {['personal', 'business'].map(type => (
-                <label key={type} className={`account-option ${accountType === type ? 'selected' : ''}`}>
-                  <input
-                    type="radio"
-                    value={type}
-                    checked={accountType === type}
-                    onChange={() => setAccountType(type)}
-                    className="account-radio"
-                  />
-                  <div className={`option-icon ${type}-icon`}></div>
-                  <div className="option-info">
-                    <div className="option-title">{type === 'personal' ? 'Personal Account' : 'Business Account'}</div>
-                    <div className="option-description">{type === 'personal' ? 'All your personal finances in one place.' : 'Adaptable to your company\'s needs.'}</div>
-                  </div>
-                </label>
-              ))}
-            </div>
+            <div style={{marginTop:"5px"}} className="account-options">
+  {['personal', 'business'].map(type => (
+    <label key={type} className={`account-option ${accountType === type ? 'selected' : ''}`}>
+      <input
+        type="radio"
+        value={type}
+        checked={accountType === type}
+        onChange={() => setAccountType(type)}
+        className="account-radio"
+      />
+      <div className={`option-icon ${type}-icon`}></div>
+      <div className="option-info">
+        <div className="option-title">{type === 'personal' ? 'Personal Account' : 'Business Account'}</div>
+        <div className="option-description">{type === 'personal' ? 'All your personal finances in one place.' : 'Adaptable to your company\'s needs.'}</div>
+      </div>
+    </label>
+  ))}
+</div>
+
           </div>
           <div className="form-field">
             <label className="checkbox-container">

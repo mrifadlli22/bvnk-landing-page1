@@ -26,7 +26,7 @@
 .logo {
   display: block;
   margin: 0 auto 10px auto;
-  max-width: 30%; /* Pastikan logo tidak melebihi lebar wrapper */
+  max-width: 50%; /* Pastikan logo tidak melebihi lebar wrapper */
   height: auto; /* Menjaga rasio aspek gambar */
 }
 
@@ -144,20 +144,12 @@
   font-size: 14px; /* Ukuran font default untuk deskripsi */
 }
 
-/* Hide radio buttons */
-input[type="radio"] {
+/* Hide radio buttons with specific class */
+.account-radio {
   position: absolute; /* Letakkan radio button di posisi yang diinginkan */
-  top: 10px; /* Jarak dari atas */
-  right: 10px; /* Jarak dari kanan */
-  cursor: pointer;
-  opacity: 1; /* Sembunyikan radio button jika ingin menggunakan label sebagai kontrol */
-}
-
-.account-type label {
-  display: flex;
-  align-items: center;
-  position: relative; /* Membuat label sebagai kontainer relatif untuk radio button */
-  margin-bottom: 5px;
+  opacity: 0; /* Sembunyikan radio button */
+  width: 0; /* Mengurangi ukuran elemen */
+  height: 0; /* Mengurangi ukuran elemen */
 }
 
 /* Checkbox and label styling */

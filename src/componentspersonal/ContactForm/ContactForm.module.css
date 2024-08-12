@@ -14,7 +14,7 @@
 
 .title {
   text-align: center;
-  color: #0D3450;
+  color: #333333;
   font-size: 28px;
   margin-bottom: 16px;
 }
@@ -84,7 +84,7 @@
 }
 
 .submitButton {
-  background-color: #0d3450;
+  background-color: #333333;
   color: #fff;
   padding: 12px 24px;
   border: none;
