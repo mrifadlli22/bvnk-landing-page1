@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./BusinessPage.module.css";
+import { useNavigate } from "react-router-dom";
 
 function FeatureItem({ iconSrc, text }) {
+
+
   return (
     <div className={styles.featureItem}>
       <img src={iconSrc} alt="" className={styles.featureItemIcon} />
@@ -29,6 +32,12 @@ function FinancialPlatform() {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    navigate('/register');
+  };
+
   return (
     <section id="services" className={styles.financialPlatformSection}>
       <div className={styles.financialPlatformContent}>
@@ -50,7 +59,7 @@ function FinancialPlatform() {
           {features.map((feature, index) => (
             <FeatureItem key={index} {...feature} />
           ))}
-          <button className={styles.ctaButton}>Open Account</button>
+          <button onClick={handleSignUpClick} className={styles.ctaButton}>Open Account</button>
         </div>
       </div>
     </section>

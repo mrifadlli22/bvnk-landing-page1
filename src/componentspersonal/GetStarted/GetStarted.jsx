@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./GetStarted.module.css";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const GetStarted = () => {
   const steps = [
@@ -16,6 +17,12 @@ const GetStarted = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    navigate('/register');
+  };
+
   return (
     <section className={styles.getStarted} id="get-started-section">
       <h2 className={styles.title}>How to Get Started?</h2>
@@ -27,7 +34,7 @@ const GetStarted = () => {
           </div>
         ))}
       </div>
-      <Button variant="primary" className={styles.ctaButton}>
+      <Button onClick={handleSignUpClick} variant="primary" className={styles.ctaButton}>
         Open Account
       </Button>
     </section>
